@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>
+            | Bolt Robot Control |
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            var http = new XMLHttpRequest();
+
+            var apiKey, deviceId;// variable to store apiKey and devicId
+
+            apiKey = "d5afab2c-97fc-4ec7-99c2-7229ab372bdf"; // Enter your apiKey
+            deviceId = "BOLT13167494"; // Enter your deviceId
+            if(apiKey == "" || deviceId == ""){
+                alert("Please enter an API KEY and a Device ID"); // it display alert
+            }
+            else{
+                alert("You are ready to play");
+            }
+
+            // function for move robot in forward direction
+            function forward(){
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=FORWARD&deviceName="+deviceId,true); 
+            http.send();
+            }
+
+            // function for move robot in backward direction
+            function backward(){
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=BACKWARD&deviceName="+deviceId,true);
+            http.send();
+            }
+
+            // function for move robot in right direction
+            function right(){
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=RIGHT&deviceName="+deviceId,true);
+            http.send();
+            }
+
+            // function for move left in forward direction
+            function left(){
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=LEFT&deviceName="+deviceId,true);
+            http.send();
+            }
+
+            // function for stop robot
+            function stop(){
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=STOP&deviceName="+deviceId,true);
+            http.send();
+            }
+            
+            function automatic(){
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=AUTOMATIC&deviceName="+deviceId,true);
+            http.send();
+            }
+        </script> 
+    </head>
+    <body>
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2"></div>
+                <div class="col-md-4"><h3 class="text text-primary" style="margin-left: 50px;">Bolt Robot Control</h3></div>
+                <div class="col-md=2"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2" style="margin-left: 22px; font-size: 50px;"><button class="glyphicon glyphicon-arrow-up" onclick="forward()"></button> </div>
+                <div class="col-md=2"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2"></div>
+                <div class="col-md-1" style="margin-left: 30px; font-size: 50px;"><button class="glyphicon glyphicon-arrow-left" onclick="left()"></button> </div>
+                <div class="col-md-1" style="margin-left: -5px; font-size: 50px;"><button class="btn btn-danger" style="height: 65px; width: 75px;" onclick="stop()">STOP</button></div>
+                <div class="col-md-2" style="margin-left: -10px; font-size: 50px;"><button class="glyphicon glyphicon-arrow-right" onclick="right()"></button> </div>
+                <div class="col-md=2"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-2"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2" style="margin-left: 14px; font-size: 50px;"><button class="glyphicon glyphicon-arrow-down" onclick="backward()"></button> </div>
+                <div class="col-md=2"></div>
+                <div class="col-md-2"></div>
+             </div>
+             <br>
+             <br>
+           <div class="col-md-2"></div>
+             <div class="col-md-3"></div>
+             <div class="col-md-2" style="margin-left: 29px; font-size: 50px;"><button class="btn btn-danger" style="height: 65px; width: 100px;" onclick="automatic()">AUTOMATIC</button></div>
+             <div class="col-md=2"></div>
+             <div class="col-md-2"></div>        
+        
+        <script src="controller.js" type="text/javascript"></script>
+    </body>
+</html>
