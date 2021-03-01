@@ -6,5 +6,4 @@ This project is all about controlling a Robotic Car in a different way through t
 
 2. Demonstration
 
-<iframe width="615" height="352" src="https://www.youtube.com/embed/0Ql2-kF_SKc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+"https://www.youtube.com/embed/0Ql2-kF_SKc
